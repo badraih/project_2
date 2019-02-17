@@ -31,3 +31,40 @@
     transform: rotate(360deg);
   }
 }
+.bookListHeader{
+  margin-bottom: 10%;
+  font-size: 50px;
+  text-align: center;
+}
+
+#Books {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse:collapse;
+  width: 90%;
+  margin:0 auto;
+}
+
+#Books td, #Books th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 30%;
+  vertical-align: top;
+}
+
+#Books tr:hover {background-color: #ddd;}
+
+#Books th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(225, 255, 245);
+  color:black;
+  font-size: 20px;
+}
+
+.header{
+  font-size: 20px;
+}
+.imageBook{
+  height: 70%;
+}
