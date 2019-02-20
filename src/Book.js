@@ -5,14 +5,16 @@ import './reset.css'
 
 // take the props of note and image and title 
 // create checkbox for each book to mark the book as complete
-// change style of mark book by used state 
+// change style of mark book by used state
+// hight auto width same size 
+
 class Book extends Component{
     render(){
 
        return (
           <div>
             <table id="Books">
-              <tr>
+              <tr >
                 <th>Title</th>
                 <th>Book</th>
                 <th>note</th>
@@ -31,12 +33,9 @@ class Book extends Component{
                 <td> <p className={`${this.props.book.checked} text`} >{this.props.book.note}</p> </td>
               </tr>
             </table>
-
-          </div>
-           
+          </div> 
        );
    }
 
 }
-
 export default Book;

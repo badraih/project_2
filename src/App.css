@@ -31,10 +31,16 @@
     transform: rotate(360deg);
   }
 }
+.pageHeader{
+  background-image: url('https://st.depositphotos.com/2121483/3263/v/450/depositphotos_32630089-stock-illustration-modern-minimalistic-furniture-interior-design.jpg');
+  height: 170px;
+  margin-bottom: 2%;
+}
 .bookListHeader{
   margin-bottom: 10%;
   font-size: 50px;
   text-align: center;
+  /* width: 300px; */
 }
 
 #Books {
@@ -42,6 +48,7 @@
   border-collapse:collapse;
   width: 90%;
   margin:0 auto;
+
 }
 
 #Books td, #Books th {
@@ -57,22 +64,111 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: rgb(225, 255, 245);
+  background-color: rgb(234, 247, 242);
   color:black;
   font-size: 20px;
 }
-
+/*   background-color: rgb(225, 255, 245); */
 .header{
   font-size: 20px;
 }
 .imageBook{
-  height: 70%;
+  height:auto;
+  width: 200px;
 }
-/* #clear{
-  
-} */
-add class checked  
+
 .checked {
   text-decoration: line-through;
   color: grey;
 }
+.NoBook{
+  text-align: center;
+  margin-top: 100px;
+  font-size: 100px;
+  color:  black;
+}
+.form{
+   width: 20% !important;
+}
+.btn{
+  background-color: rgb(234, 247, 242) !important ;
+  border:1px solid rgb(129, 126, 126) !important ;
+  width: 130px;
+}
+.btn1{
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  justify-content: flex-start;
+}
+.btnCheckedClear{
+  border:1px solid rgb(129, 126, 126) !important ;
+  border-radius: 0.25rem;
+  width: 180px;
+  height: 30px;
+}
+.count{
+  border-bottom:1px solid rgb(129, 126, 126) !important ;
+  width: 140px;
+  height: 30px;
+}
+
+
+ @media only screen and ( max-width: 960px){
+  
+  .bookListHeader {
+    text-align: center;
+    width: 80%;
+    font-size: 50px;
+  }
+  .pageHeader{
+    height: 147px;
+    margin-bottom: 2%;
+    width: 1000px;
+  }
+ 
+  .btn{
+    background-color: rgb(234, 247, 242) !important ;
+    border:1px solid rgb(129, 126, 126) !important ;
+    width: 130px !important;
+    margin-top: 4px !important;
+  }
+  
+}
+                                                       /* Media queries */
+                                                      
+@media only screen and (max-width: 640px) {
+ 
+.bookListHeader {
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+}
+.pageHeader{
+  height: 147px;
+  margin-bottom: 2%;
+  width: 649px;
+}
+
+#Books {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse:collapse;
+  width: 90%;
+  margin:0 auto;
+}
+
+.input-group{
+  margin-right: 12px !important;
+}
+
+.btn{
+  background-color: rgb(234, 247, 242) !important ;
+  border:1px solid rgb(129, 126, 126) !important ;
+  width: 130px !important;
+  margin-top: 4px !important;
+}
+
+}
+
+/* https://s3-eu-west-1.amazonaws.com/images.linnlive.com/46f002540b02bbcc49ff64da6bbb6eee/9fd66cf9-b5e2-4ba7-9c8a-55648b3a14cc.jpg */
