@@ -21,7 +21,7 @@ import moment from 'moment';
 class App extends Component {
  // declare state 
   state= {
-    // formData new book data input 
+    // formData --> to set new book data input 
     formData:{
        title:"",
        image:"",
@@ -31,32 +31,49 @@ class App extends Component {
     checkCount:0,
     // book_list store all book data 
      book_list:[
-      // {
-      //   title:"How to Change Your Mind",
-      //   image:"https://images.gr-assets.com/books/1522586374l/36710811.jpg",
-      //   note:"I finished reading a hundred pages",
-      //   checked: 'false',
+      {
+        title:"How to Change Your Mind",
+        image:"https://images.gr-assets.com/books/1522586374l/36710811.jpg",
+        note:"I finished reading a hundred pages",
+        checked: 'false',
        
-      // }
-      // ,{
-      //   title:"The Rise and Fall of the Dinosaurs",
-      //  image:"https://images.gr-assets.com/books/1515529573l/35820369.jpg",
-      //  note:"I read 300 pages",
-      //  checked: 'false',
+      }
+      ,{
+        title:"The Rise and Fall of the Dinosaurs",
+       image:"https://images.gr-assets.com/books/1515529573l/35820369.jpg",
+       note:"I read 300 pages",
+       checked: 'false',
       
-      // }
-      // ,{
-      //   title:"Harry Potter",
-      //   image:"https://images.gr-assets.com/books/1474154022l/3.jpg",
-      //   note:"(Harry Potter #1)",
-      //   checked: 'false',
-      // }
+      }
+      ,{
+        title:"Harry Potter",
+        image:"https://images.gr-assets.com/books/1474154022l/3.jpg",
+        note:"(Harry Potter #1)",
+        checked: 'false',
+      }
     ]
   }//end state
  
+// componentDidMount() -> after the initial render
+ componentDidMount(){
+   // book_list local storage -> save all book list  
+    if(!localStorage.getItem('book_list')){
+      localStorage.setItem("book_list", JSON.stringify(this.state.book_list));}
+      
+    localStorage.getItem('book_list') && this.setState({
+        book_list: JSON.parse(localStorage.getItem('book_list')),
+      });
+    // count local storage -> save how many book checked (completed)
+      if(!localStorage.getItem('count')){
+            localStorage.setItem("count", JSON.stringify(this.state.checkCount));}
+            
+          localStorage.getItem('count') && this.setState({
+            checkCount: JSON.parse(localStorage.getItem('count')),
+            });
+     }
   // SaveDataToLocalStorage() function to add new book data inside local storage 
   SaveDataToLocalStorage(data)
-  { 
+  {
       var a = [];
       // Parse the serialized data back into an array of objects
       a = JSON.parse(localStorage.getItem('book_list'));
@@ -66,26 +83,8 @@ class App extends Component {
       localStorage.setItem('book_list', JSON.stringify(a));
   }
 
-// componentDidMount() -> after the initial render
-  
- componentDidMount(){
-    if(!localStorage.getItem('book_list')){
-      localStorage.setItem("book_list", JSON.stringify(this.state.book_list));}
-      
-    localStorage.getItem('book_list') && this.setState({
-        book_list: JSON.parse(localStorage.getItem('book_list')),
-      });
-
-      if(!localStorage.getItem('count')){
-            localStorage.setItem("count", JSON.stringify(this.state.checkCount));}
-            
-          localStorage.getItem('count') && this.setState({
-            checkCount: JSON.parse(localStorage.getItem('count')),
-            });
-     }
-
   // setBookData --> call when user click on button submit to add new data in page
-             //set the book data input to this.satae.Book_list
+        //set the book data input to this.satae.Book_list
   setBookData=(event)=>{
     //prevent the form 
     event.preventDefault();
@@ -123,21 +122,16 @@ class App extends Component {
 //call function when click on button clear checked item -->to delete only checked book(completed)
   clearBookChecked=()=>{
     //const copyStateBook= this.state.book_list.slice(0);//make copy of book_list
-    
     //  used filter to remove the checked Books(completed)
     const updatedList = this.state.book_list.filter(book => {
-      console.log(book)
       return book.checked === 'false'
     });
-
-    console.log('listUpdated after delete checked book', updatedList);
-
     // update book_list by use set state
-    localStorage.setItem("count", JSON.stringify(parseInt(0)));
+    localStorage.setItem("count", JSON.stringify(0));
 
     this.setState({
       book_list: updatedList,
-      checkCount:0
+      checkCount:0 // reset count to 0
     });
       
        localStorage.setItem("book_list", JSON.stringify(updatedList)); // set local storage after delete checked book
@@ -145,9 +139,8 @@ class App extends Component {
 
   // checkBook--> check if the book checked by take the index from child component
    checkBook = (index) => {
-    // console.log("this.state.book_list.checkCoun",this.state.book_list.checkCount);
-      // console.log(index)
       const copy= this.state.book_list.slice(0);//make copy of book_list array
+
       if (copy[index].checked === 'checked'){ 
         /* the value of checked state equal 'checked' that means this value change form 
       checked to unchecked so it need to reset their value to be false*/   
@@ -155,10 +148,8 @@ class App extends Component {
         this.setState({
           checkCount:this.state.checkCount-1
         });
-
         localStorage.setItem("count", JSON.stringify(this.state.checkCount-1)); 
       } 
-      
       else {
          // the value of checked state equal 'false' that means this value checked 
         copy[index].checked = "checked";
@@ -170,10 +161,8 @@ class App extends Component {
         localStorage.setItem("count", JSON.stringify(this.state.checkCount+1));
           //parseInt(this.state.checkCount)+1));
       }
-
           //set copy to local storage
          // setState of book_list
-     
       this.setState({
         book_list: copy,
        
@@ -195,7 +184,6 @@ class App extends Component {
   render(){
     // store all books in listOfBook by use map 
     //pass a refreance to the child as props
-   
     const listOfBook=this.state.book_list.map((book, index)=>{
          return <Book book={book} 
                       index={index}
@@ -204,7 +192,6 @@ class App extends Component {
     });
 
     return (
-      
       <div id="data" >
         <div className="pageHeader">
                  <h1 className="bookListHeader"> 
@@ -235,8 +222,8 @@ class App extends Component {
       </div>
 
         {/* if there is no book  */}
-      {this.state.book_list.length === 0 ? <h3 className="NoBook"> About Book List: 
-      <p className="About"> Book List is the site for readers and their books list. Our mission is to help 
+      {this.state.book_list.length === 0 ? <h3 className="NoBook"> About Books List: 
+      <p className="About"> Books List is the site for readers and their books list. Our mission is to help 
       readers <br/> to add their books that they want to read it and allow to write their note about 
       the book <br/>also clear the book after they finished reading the book . </p>
       </h3> : listOfBook}
