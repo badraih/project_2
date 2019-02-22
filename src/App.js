@@ -53,7 +53,7 @@ class App extends Component {
       }
     ]
   }//end state
- 
+    
 // componentDidMount() -> after the initial render
  componentDidMount(){
    // book_list local storage -> save all book list  
@@ -91,7 +91,7 @@ class App extends Component {
     const copy= this.state.book_list.slice(0);//make copy of book_list array
     copy.push(this.state.formData);//add the new book_list data to the array
     
-    if(this.state.formData.title!=="" || this.state.formData.image!=="" || this.state.formData.note!=""){
+    if(this.state.formData.title!=="" || this.state.formData.image!=="" || this.state.formData.note!==""){
     this.setState({
       book_list:copy,//set the new book data to book_list by copy constant
       formData:{ // reset the input box to empty data
@@ -194,32 +194,36 @@ class App extends Component {
     return (
       <div id="data" >
         <div className="pageHeader">
-                 <h1 className="bookListHeader"> 
-                 Books List</h1>
+                 {/* <h1 className="bookListHeader"> 
+                 </h1> */}
+                 <p className="h1 bookListHeader">Books List <p className="date"> {moment().format('MMMM Do YYYY, h:mm:ss a')} </p><br/> </p>
+
         </div>
+
+ <div>
+<form class="form-inline">
+<div className="form-group mx-sm-3 mb-2">
+    <label for="inputTitle" className="sr-only">Title</label>
+    <input type="text" className="form-control" id="inputTitle" placeholder="Book title" name="title" onChange={this.getBookData} value={this.state.formData.title}/>
+  </div>
+ <div className="form-group mx-sm-3 mb-2">
+    <label for="inputImage" className="sr-only">image</label>
+    <input type="password" className="form-control" id="inputImage" placeholder="image link" name="image" onChange={this.getBookData} value={this.state.formData.image}/>
+  </div>
+  <div className="form-group mx-sm-3 mb-2">
+    <label for="inputNote" className="sr-only">Note</label>
+    <input type="text" className="form-control" id="inputNote" placeholder="note" name="note" onChange={this.getBookData} value={this.state.formData.note}/>
+  </div>
+  <button type="submit" className="btn btn-primary mb-2 ml-1" onClick={this.setBookData}>Add Book</button>
+</form>
+
+    <form className="form-inline mt-3">
+       <button type="submit" id="btnClear" className="btn btn-primary mb-2 ml-3" onClick={this.clearBookChecked} >Clear completed book</button>
+       <button type="submit" id="btnClear" className="btn btn-primary mb-2 ml-3" onClick={this.clearAll}>Clear all book</button>
+       <p className="count ml-3">{this.state.checkCount} book completed</p>
       
-      <div className="input-group ml-5">
-         <div className="input-group-prepend ml-2 ">
-              <span className="input-group-text" id="addon-wrapping" >Title</span>
-         </div>
-         <input type="text" className="form" placeholder="title" name="title" onChange={this.getBookData} value={this.state.formData.title} />
-            <div className="input-group-prepend ml-2">
-                  <span className="input-group-text" id="addon-wrapping" >Image</span>
-            </div>
-         <input type="text" className="form" placeholder="image" name="image" onChange={this.getBookData} value={this.state.formData.image} />
-             <div className="input-group-prepend ml-2">
-                 <span className="input-group-text" id="addon-wrapping" >Note</span>
-         </div>
-         <input type="text" className="form" placeholder="note" name="note" onChange={this.getBookData} value={this.state.formData.note}/>
-         <button type="submit" className="btn ml-2" onClick={this.setBookData}> ＋ Add book</button>
-      </div>
-      <br/>
-      <div className="btn1">
-          <button type="submit" className="btn1 btnCheckedClear" onClick={this.clearBookChecked}>Clear completed book</button>
-          <button type="submit" className="btn1 btnCheckedClear" onClick={this.clearAll}>Clear all books</button>
-           <p className="btn1 count" >{this.state.checkCount} book completed</p>
-           <p className="date"> {moment().format("MMM Do YY")} </p><br/>
-      </div>
+    </form>
+    </div>
 
         {/* if there is no book  */}
       {this.state.book_list.length === 0 ? <h3 className="NoBook"> About Books List: 

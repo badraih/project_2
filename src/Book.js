@@ -13,26 +13,31 @@ class Book extends Component{
 
        return (
           <div>
-            <table id="Books">
-              <tr >
-                <th>Title</th>
-                <th>Book</th>
-                <th>note</th>
-              </tr>
-              <tr>
-                <td>
-                  <h2 className={`${this.props.book.checked} header`}> 
+            <table class="table" id="Books">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Book</th>
+      <th scope="col">note</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      {/* <th scope="row"></th> */}
+      <td >  <h2 className={`${this.props.book.checked} header`}> 
                     <input  value="0" 
                             type="checkbox" 
                             checked={this.props.book.checked === "checked"? true : false}
                             onChange={()=>this.props.checkBook(this.props.index)}  />  
                             {this.props.book.title}
                   </h2>
-                </td>
-                <td><img className="imageBook" src={this.props.book.image}></img></td>
-                <td> <p className={`${this.props.book.checked} text`} >{this.props.book.note}</p> </td>
-              </tr>
-            </table>
+      </td>
+      <td><img className="imageBook" src={this.props.book.image}></img></td>
+      <td><p className={`${this.props.book.checked} text`} >{this.props.book.note}</p></td>
+    </tr>
+    </tbody>
+    </table>
           </div> 
        );
    }

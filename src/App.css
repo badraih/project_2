@@ -51,9 +51,9 @@
   width: 90%;
   margin:0 auto;
 
-}
+} 
 
-#Books td, #Books th {
+ #Books td, #Books th {
   border: 1px solid #ddd;
   padding: 8px;
   width: 30%;
@@ -76,7 +76,7 @@
 }
 .imageBook{
   height:auto;
-  width: 200px;
+  width: 150px;
 }
 
 .checked {
@@ -102,20 +102,9 @@
 .btn{
   background-color: rgb(234, 247, 242) !important ;
   border:1px solid rgb(129, 126, 126) !important ;
-  width: 130px;
-}
-.btn1{
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-  margin-left: 30px;
-  justify-content: flex-start;
-}
-.btnCheckedClear{
-  border:1px solid rgb(129, 126, 126) !important ;
-  border-radius: 0.25rem;
-  width: 180px;
-  height: 30px;
+  width: 160 !important;
+  height: auto !important;
+  color: black !important; 
 }
 .count{
   border-bottom:1px solid rgb(129, 126, 126) !important ;
@@ -123,70 +112,9 @@
   height: 30px;
 }
 .date{
-text-align: right;
-margin-left: 450px;
+text-align: center !important;
+/* margin-left: 700px !important; */
 font-size: 19px; 
-color: rgb(187, 180, 180)
+color: black;
+width: auto;
 }
-                            /* ***** Media queries not completed yet :) ***** */     
-
- @media only screen and ( max-width: 960px){
-  
-  .bookListHeader {
-    text-align: center;
-    width: 80%;
-    font-size: 50px;
-  }
-  /* .pageHeader{
-    height: 147px;
-    margin-bottom: 2%;
-    width: 1000px;
-  } */
- 
-  .btn{
-    background-color: rgb(234, 247, 242) !important ;
-    border:1px solid rgb(129, 126, 126) !important ;
-    width: 130px !important;
-    margin-top: 4px !important;
-  }
-  
-}
-                                                                                                   
-@media only screen and (max-width: 640px) {
-.bookListHeader {
-  text-align: center;
-  width: 100%;
-  font-size: 50px;
-}
-.pageHeader{
-  height: 147px;
-  margin-bottom: 2%;
-  width: 649px;
-}
-
-#Books {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse:collapse;
-  width: 90%;
-  margin:0 auto;
-}
-
-/* .input-group{
-  margin-right: 12px !important;
-} */
-
-.btn{
-  background-color: rgb(234, 247, 242) !important ;
-  border:1px solid rgb(129, 126, 126) !important ;
-  width: 100px !important;
-  margin-top: 4px !important;
-}
-
-}
-
-/*Text-size*/
-/* @media (min-width: 640px) { #data {font-size:1rem;} } 
-@media (min-width:960px) { #data {font-size:1.2rem;} } 
-@media (min-width:1100px) { #body {font-size:1.5rem;} } */
-
-/* https://s3-eu-west-1.amazonaws.com/images.linnlive.com/46f002540b02bbcc49ff64da6bbb6eee/9fd66cf9-b5e2-4ba7-9c8a-55648b3a14cc.jpg */
