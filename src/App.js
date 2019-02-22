@@ -179,6 +179,7 @@ class App extends Component {
        ,checkCount:0
      });
      localStorage.setItem("book_list", JSON.stringify([]));
+     localStorage.setItem("count", JSON.stringify(0));
     }
   
   render(){
