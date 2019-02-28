@@ -1,6 +1,6 @@
 
 ## Books List:
-   Books List is the site for readers and their books list. Our mission is to help readers to add their books that they want to read it and allow to write their note about the book also clear the book after they finished reading the book .
+   Books List is the site for readers and their books list. Our mission is to help readers to add their books that they want to read and allow to write their note about the book also clear the book after they finished reading.
 
 ![alt text](src/book_list.png)
 
