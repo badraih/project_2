@@ -1,15 +1,15 @@
 
 ## Books List:
-   Books List is the site for readers and their books list. Our mission is to help readers to add their books that they want to read and allow to write their note about the book also clear the book after they finished reading.
+   Books List is the site to help readers to add their books that they want to read and allow to write their note about the book also clear the book after they finished reading.
 
 ![alt text](src/book_list.png)
 
 ## Requirements:
-    1-Add a new book to the list
-    2-Mark the book as complete
-    3-Remove an book from the list
-    4-Clear all books
-    5-Clear only completed books
+    * Add a new book to the list
+    * Mark the book as complete
+    * Remove an book from the list
+    * Clear all books
+    * Clear only completed books
 
 ## Technologies
 * React in Visual Studio Code
