@@ -12,7 +12,7 @@
     * Clear only completed books
 
 ## Technologies
-* React in Visual Studio Code
+* React.js
 
 ## Features
 * allow user to add new data book
